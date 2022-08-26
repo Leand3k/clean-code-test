@@ -18,6 +18,14 @@ class ManageTransactionsUsecase {
         return await this.transactionsRepository.getTransactionsSellers();
     }
 
+    async getBuyers() {
+        return await this.transactionsRepository.getBuyers()
+    }
+
+    async getSellers() {
+        return await this.transactionsRepository.getSellers()
+    }
+
     async getTransaction(id) {
         return await this.transactionsRepository.getTransaction(id);
     }

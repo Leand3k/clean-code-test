@@ -25,17 +25,70 @@ class Transaction extends Model {
 
         const transactionsBuyers = await Transaction.findAll({
             raw: true,
+
             where: {
                 transaction_type: true
             },
             include: [{
-                model: User
+                model: User,
+
             }]
 
         })
 
         return transactionsBuyers;
 
+    }
+
+    async getBuyers() {
+
+        const transactionsBuyers = await Transaction.findAll({
+            raw: true,
+            attributes: {
+                exclude: [
+                    'buyer_user',
+                    'products',
+                    'transaction_type',
+                    'id'
+                ]
+            },
+            where: {
+                transaction_type: true
+            },
+            include: [{
+                model: User,
+
+            }]
+
+        })
+
+        return transactionsBuyers;
+
+    }
+
+    async getSellers() {
+        const transactionsSellers = await Transaction.findAll({
+            raw: true,
+            attributes: {
+                exclude: [
+                    'buyer_user',
+                    'products',
+                    'transaction_type',
+                    'id'
+                ]
+            },
+            include: [{
+                model: User,
+
+            }],
+            where: {
+                transaction_type: true
+            },
+
+
+        })
+
+        return transactionsSellers;
     }
 
     async getTransactionsSellers() {

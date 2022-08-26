@@ -3,7 +3,7 @@ require("dotenv").config(".env")
 const { DataTypes, Sequelize, Model } = require('sequelize')
 const sequelize = require("./db")
 const bcrypt = require("bcrypt")
-const User = require("../repositories/sequelize-users-repository")
+// const User = require("../repositories/sequelize-users-repository")
 
 
 class Product extends Model {
@@ -106,10 +106,8 @@ Product.init({
 // Product.hasMany(User);
 // User.belongsTo(Product);
 
-User.hasOne(Product, { foreignKey: "id" })
-Product.belongsTo(User, { foreignKey: "id" })
-
-
+// User.hasMany(Product)
+// Product.belongsTo(User, { foreignKey: "id" })
 
 
 
