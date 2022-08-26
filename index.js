@@ -1,28 +1,28 @@
 require("dotenv").config(".env");
 
 //Database Settings
-const db = require("./repositories/db")
-const createExpressApp = require("./frameworks/express")
+const db = require("./src/repositories/db")
+const createExpressApp = require("./src/frameworks/express")
 
 // Initialize User Setting
-const SequelizeUsersRepository = require("./repositories/sequelize-users-repository")
-const ManageUsersUsecase = require("./usecases/manage-users-usecase");
-const createUsersRouter = require("./http/users-router")
+const SequelizeUsersRepository = require("./src/repositories/sequelize-users-repository")
+const ManageUsersUsecase = require("./src/usecases/manage-users-usecase");
+const createUsersRouter = require("./src/http/users-router")
 
 // Initialize Category setting
-const SequelizeCategoriesRepository = require("./repositories/sequelize-categories-repository")
-const ManageCategoriesUsecase = require("./usecases/manage-categories-usecase")
-const createCategoriesRouter = require("./http/categories-router")
+const SequelizeCategoriesRepository = require("./src/repositories/sequelize-categories-repository")
+const ManageCategoriesUsecase = require("./src/usecases/manage-categories-usecase")
+const createCategoriesRouter = require("./src/http/categories-router")
 
 // Initialize Products setting
-const SequelizeProductsRepository = require('./repositories/sequelize-products-repository')
-const ManageProductsRepository = require('./usecases/manage-products-usecase')
-const createProductsRouter = require('./http/products-router')
+const SequelizeProductsRepository = require('./src/repositories/sequelize-products-repository')
+const ManageProductsRepository = require('./src/usecases/manage-products-usecase')
+const createProductsRouter = require('./src/http/products-router')
 
 // Initialize Transactions setting
-const SequelizeTransactionsRepository = require('./repositories/sequelize-transactions-repository')
-const ManageTransactionsRepository = require('./usecases/manage-transactions-usecase')
-const createTransactionsRouter = require('./http/transactions-router')
+const SequelizeTransactionsRepository = require('./src/repositories/sequelize-transactions-repository')
+const ManageTransactionsRepository = require('./src/usecases/manage-transactions-usecase')
+const createTransactionsRouter = require('./src/http/transactions-router')
 
 
 // Initialize Sequelize Client

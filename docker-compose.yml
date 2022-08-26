@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  node_backend:
+    container_name: node_backend
+    image: node-test:1.0.0
+    build:
+      context: .
+    ports:
+      - 8081:8081
+    environment:
+      - SEQUELIZE_DIALECT=postgres
+      - SEQUELIZE_USERNAME=postgres
+      - SEQUELIZE_PASSWORD=admin
+      - SEQUELIZE_HOST=localhost
+      - SEQUELIZE_PORT=5432
+      - SEQUELIZE_DATABASE=eCommerce
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: "postgres:12"
+    ports:
+      - 3030:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=eCommerce
+    volumes:
+      - pgdata1:/var/lib/postgresql/data
+
+volumes:
+  pgdata1: {}
