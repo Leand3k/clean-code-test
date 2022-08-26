@@ -10,9 +10,19 @@ class ManageTransactionsUsecase {
         return await this.transactionsRepository.getTransactions();
     }
 
+    async getTransactionsBuyers() {
+        return await this.transactionsRepository.getTransactionsBuyers();
+    }
+
+    async getTransactionsSellers() {
+        return await this.transactionsRepository.getTransactionsSellers();
+    }
+
     async getTransaction(id) {
         return await this.transactionsRepository.getTransaction(id);
     }
+
+
 
     async createTransaction(data) {
 

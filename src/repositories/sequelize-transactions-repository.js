@@ -15,16 +15,46 @@ class Transaction extends Model {
 
         const transactions = await Transaction.findAll({
             raw: true,
-            include: [{
-                model: User
-            }],
-            where: {
-                transaction_type: true
-            }
+
         })
 
         return transactions;
     }
+
+    async getTransactionsBuyers() {
+
+        const transactionsBuyers = await Transaction.findAll({
+            raw: true,
+            where: {
+                transaction_type: true
+            },
+            include: [{
+                model: User
+            }]
+
+        })
+
+        return transactionsBuyers;
+
+    }
+
+    async getTransactionsSellers() {
+
+        const transactions = await Transaction.findAll({
+            raw: true,
+            include: [{
+                model: User
+            }],
+            where: {
+                transaction_type: false
+            }
+        })
+
+        return transactions;
+
+    }
+
+
 
     async getTransaction(id) {
         return await Transaction.findByPk(id)

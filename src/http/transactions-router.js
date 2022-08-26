@@ -11,6 +11,18 @@ function createTransactionsRouter(manageTransactionsUsecase) {
         res.status(200).send(transactions);
     })
 
+    router.get("/transactions/buyers", async (req, res) => {
+
+        const transactionsBuyers = await manageTransactionsUsecase.getTransactionsBuyers();
+        res.status(200).send(transactionsBuyers);
+    })
+
+    router.get("/transactions/sellers", async (req, res) => {
+
+        const transactionsSellers = await manageTransactionsUsecase.getTransactionsSellers();
+        res.status(200).send(transactionsSellers);
+    })
+
     router.get("/transactions/:id", async (req, res) => {
         const id = req.params.id;
 
