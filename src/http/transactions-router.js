@@ -23,12 +23,6 @@ function createTransactionsRouter(manageTransactionsUsecase) {
         res.status(200).send(transactionsSellers);
     })
 
-    router.get("/users/buyers", async (req, res) => {
-
-        const transactionUserBuyers = await manageTransactionsUsecase.getBuyers();
-        res.status(200).send(transactionUserBuyers);
-    })
-
     router.get("/transactions/:id", async (req, res) => {
         const id = req.params.id;
 
@@ -65,7 +59,6 @@ function createTransactionsRouter(manageTransactionsUsecase) {
 
         res.status(200).send(`Transaction deleted with ID ${id}`)
     })
-
 
 
     return router;

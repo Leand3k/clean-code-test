@@ -2,7 +2,7 @@ const User = require('../entities/user')
 
 class ManageUsersUsecase {
 
-    constructor (usersRepository) {
+    constructor(usersRepository) {
         this.usersRepository = usersRepository;
     }
 

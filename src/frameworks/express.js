@@ -1,6 +1,5 @@
 const express = require('express');
 var bodyParser = require('body-parser')
-const basicAuth = require('express-basic-auth');
 
 // Módulo para crear una aplicación en Express
 // recibiendo las dependencias externamente.
@@ -19,9 +18,6 @@ async function createExpressApp(routers) {
     app.use(bodyParser.urlencoded({
         extended: true
     }))
-
-
-
 
 
     // Usar rutas recibidas.

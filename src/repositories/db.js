@@ -1,5 +1,4 @@
-
-const { Sequelize } = require('sequelize');
+const {Sequelize} = require('sequelize');
 require("dotenv").config(".env");
 
 // Obtener datos desde variables de entorno.

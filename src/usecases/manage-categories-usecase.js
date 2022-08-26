@@ -2,7 +2,7 @@ const Category = require('../entities/category')
 
 class ManageCategoriesUsecase {
 
-    constructor (categoriesRepository) {
+    constructor(categoriesRepository) {
         this.categoriesRepository = categoriesRepository;
     }
 

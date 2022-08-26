@@ -2,7 +2,7 @@ const Transaction = require('../entities/transaction')
 
 class ManageTransactionsUsecase {
 
-    constructor (transactionsRepository) {
+    constructor(transactionsRepository) {
         this.transactionsRepository = transactionsRepository;
     }
 
@@ -29,7 +29,6 @@ class ManageTransactionsUsecase {
     async getTransaction(id) {
         return await this.transactionsRepository.getTransaction(id);
     }
-
 
 
     async createTransaction(data) {

@@ -1,8 +1,7 @@
 require("dotenv").config(".env")
 
-const { DataTypes, Sequelize, Model } = require('sequelize')
+const {DataTypes, Sequelize, Model} = require('sequelize')
 const sequelize = require("./db")
-const bcrypt = require("bcrypt")
 
 
 class Category extends Model {
@@ -86,9 +85,6 @@ Category.init({
     tableName: 'category',
     timestamps: false,
 })
-
-
-
 
 
 module.exports = Category;

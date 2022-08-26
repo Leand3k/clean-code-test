@@ -1,6 +1,6 @@
 require("dotenv").config(".env")
 
-const { DataTypes, Sequelize, Model } = require('sequelize')
+const {DataTypes, Sequelize, Model} = require('sequelize')
 const sequelize = require("./db")
 const bcrypt = require("bcrypt")
 const Product = require("./sequelize-products-repository")
@@ -24,7 +24,7 @@ class User extends Model {
     async getName() {
         const name = await User.findAll({
             raw: true,
-            where: { name: 'DIEGO JAVIER222' }
+            where: {name: 'DIEGO JAVIER222'}
         })
 
         return name
@@ -45,7 +45,6 @@ class User extends Model {
 
         await User.update(user, options);
     }
-
 
 
     async deleteUser(id) {
@@ -112,8 +111,8 @@ User.init({
     },
 })
 
-User.hasMany(Product, { foreignKey: 'id' })
-Product.belongsTo(User, { foreignKey: 'id' })
+User.hasMany(Product, {foreignKey: 'id'})
+Product.belongsTo(User, {foreignKey: 'id'})
 
 
 module.exports = User;

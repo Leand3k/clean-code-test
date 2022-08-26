@@ -62,7 +62,6 @@ function createUsersRouter(manageUsersUsecase) {
     })
 
 
-
     return router;
 }
 

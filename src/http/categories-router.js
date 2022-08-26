@@ -1,5 +1,4 @@
 const express = require('express');
-// const appRoot = require('app-root-path');
 const Category = require('../entities/category')
 const validateSchema = require("../frameworks/ajv")
 
@@ -81,7 +80,6 @@ function createCategoriesRouter(manageCategoriesUsecase) {
 
 
     })
-
 
 
     return router;

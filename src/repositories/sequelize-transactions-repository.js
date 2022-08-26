@@ -1,8 +1,7 @@
 require("dotenv").config(".env")
 
-const { DataTypes, Sequelize, Model } = require('sequelize')
+const {DataTypes, Sequelize, Model} = require('sequelize')
 const sequelize = require("./db")
-const bcrypt = require("bcrypt")
 const User = require("./sequelize-users-repository")
 const Product = require("./sequelize-products-repository")
 
@@ -10,7 +9,6 @@ const Product = require("./sequelize-products-repository")
 class Transaction extends Model {
 
     async getTransactions() {
-
 
 
         const transactions = await Transaction.findAll({
@@ -107,7 +105,6 @@ class Transaction extends Model {
     }
 
 
-
     async getTransaction(id) {
         return await Transaction.findByPk(id)
     }
@@ -187,9 +184,9 @@ Transaction.init({
 
 })
 
-User.hasMany(Transaction, { foreignKey: "id" })
-Transaction.belongsToMany(Product, { through: 'transaction_product' })
-Transaction.belongsTo(User, { foreignKey: "id" })
+User.hasMany(Transaction, {foreignKey: "id"})
+Transaction.belongsToMany(Product, {through: 'transaction_product'})
+Transaction.belongsTo(User, {foreignKey: "id"})
 Product.belongsTo(Transaction)
 
 

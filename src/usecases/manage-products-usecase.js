@@ -2,7 +2,7 @@ const Product = require('../entities/product')
 
 class ManageProductsUsecase {
 
-    constructor (productsRepository) {
+    constructor(productsRepository) {
         this.productsRepository = productsRepository;
     }
 
