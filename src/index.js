@@ -1,26 +1,34 @@
 require("dotenv").config(".env");
 
 //Database Settings
-const SequelizeClient = require("./repositories/db")
+const db = require("./repositories/db")
 const createExpressApp = require("./frameworks/express")
 
 // Initialize User Setting
-const SequelizeUsersRepository = require("./repositories/user/sequelize-users-repository")
+const SequelizeUsersRepository = require("./repositories/sequelize-users-repository")
 const ManageUsersUsecase = require("./usecases/manage-users-usecase");
 const createUsersRouter = require("./http/users-router")
 
+// Initialize Category setting
+const SequelizeCategoriesRepository = require("./repositories/sequelize-categories-repository")
+const ManageCategoriesUsecase = require("./usecases/manage-categories-usecase")
+const createCategoriesRouter = require("./http/categories-router")
+
 // Initialize Sequelize Client
-const sequelizeClient = new SequelizeClient();
-
-const sequelizeUsersRepository = new SequelizeUsersRepository(sequelizeClient)
 
 
-sequelizeClient.syncDatabase();
+const sequelizeUsersRepository = new SequelizeUsersRepository(db)
+const sequelizeCategoriesRepository = new SequelizeCategoriesRepository(db)
 
-const manageUsersUsecase = new ManageUsersUsecase((sequelizeUsersRepository))
 
-let routers=[
+db.sync()
+
+const manageUsersUsecase = new ManageUsersUsecase(sequelizeUsersRepository)
+const manageCategoriesUsecase = new ManageCategoriesUsecase(sequelizeCategoriesRepository)
+
+let routers = [
     createUsersRouter(manageUsersUsecase),
+    createCategoriesRouter(manageCategoriesUsecase)
 ]
 
 const app = createExpressApp(routers)
