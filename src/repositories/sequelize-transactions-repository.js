@@ -25,14 +25,13 @@ class Transaction extends Model {
 
         const transactionsBuyers = await Transaction.findAll({
             raw: true,
-
-            where: {
-                transaction_type: true
-            },
             include: [{
                 model: User,
 
-            }]
+            }],
+            where: {
+                transaction_type: true
+            },
 
         })
 

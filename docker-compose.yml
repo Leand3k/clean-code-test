@@ -8,13 +8,16 @@ services:
       context: .
     ports:
       - 8081:8081
+    env_file:
+      - .env
+
     environment:
-      - SEQUELIZE_DIALECT=postgres
-      - SEQUELIZE_USERNAME=postgres
-      - SEQUELIZE_PASSWORD=admin
-      - SEQUELIZE_HOST=localhost
+      - SEQUELIZE_DIALECT=${SEQUELIZE_DIALECT}
+      - SEQUELIZE_USERNAME=${SEQUELIZE_USERNAME}
+      - SEQUELIZE_PASSWORD=${SEQUELIZE_PASSWORD}
+      - SEQUELIZE_HOST=${SEQUELIZE_HOST}
       - SEQUELIZE_PORT=5432
-      - SEQUELIZE_DATABASE=eCommerce
+      - SEQUELIZE_DATABASE=${SEQUELIZE_DATABASE}
     depends_on:
       - db
 

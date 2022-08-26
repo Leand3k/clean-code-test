@@ -32,7 +32,7 @@ const sequelizeProductsRepository = new SequelizeProductsRepository(db);
 const sequelizeTransactionsRepository = new SequelizeTransactionsRepository(db);
 
 
-db.sync()
+db.sync({ force: true })
 
 const manageUsersUsecase = new ManageUsersUsecase(sequelizeUsersRepository)
 const manageCategoriesUsecase = new ManageCategoriesUsecase(sequelizeCategoriesRepository)
