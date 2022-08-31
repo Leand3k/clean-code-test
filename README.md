@@ -1,4 +1,4 @@
-# Enviame Backend Junior Test
+# Clean Code Architecture Backend
 
 El proyecto está enfocado en los aspectos operacionales de un proceso de marketplace ecommerce típico, con el propósito de crear un API que de la capacidad de tener **usuarios, productos, categorías y transacciones**
 
